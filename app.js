@@ -26,4 +26,8 @@ app.use('/api/v1/users', userRoute);
 app.use('/api/v1/videos', videoRoute);
 app.use('/api/v1/comments', commentRoute);
 
+app.all('*', (req, res, next) => {
+  next(new NotFoundError(`Can't find ${req.originalUrl} on this server`));
+});
+
 export default app;
