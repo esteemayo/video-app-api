@@ -9,7 +9,29 @@ export const getUsers = asyncHandler(async (req, res, next) => { });
 
 export const getUser = asyncHandler(async (req, res, next) => { });
 
-export const updateUser = asyncHandler(async (req, res, next) => { });
+export const updateUser = asyncHandler(async (req, res, next) => {
+  const { id: userId } = req.params;
+
+  const updatedUser = await User.findByIdAndUpdate(
+    userId,
+    { $set: { ...req.body } },
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+
+  if (!updatedUser) {
+    return next(
+      new NotFoundError(`There is no user with the given ID ↔ ${userId}`)
+    );
+  }
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    user: updatedUser,
+  });
+});
 
 export const updateMe = asyncHandler(async (req, res, next) => { });
 
