@@ -5,6 +5,7 @@ import asyncHandler from 'express-async-handler';
 import User from '../models/User.js';
 import UnauthenticatedError from './../errors/unauthenticated.js';
 import BadRequestError from './../errors/badRequest.js';
+import createSendToken from '../utils/createSendToken.js';
 
 export const signup = asyncHandler(async (req, res, next) => {
   const user = await User.create({ ...req.body });
