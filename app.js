@@ -31,4 +31,6 @@ app.all('*', (req, res, next) => {
   next(new NotFoundError(`Can't find ${req.originalUrl} on this server`));
 });
 
+app.use(globalErrorHandler);
+
 export default app;
