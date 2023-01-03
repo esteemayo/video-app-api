@@ -125,7 +125,10 @@ export const likeVideo = asyncHandler(async (req, res, next) => { });
 
 export const dislikeVideo = asyncHandler(async (req, res, next) => { });
 
-export const getMe = (req, res) => { };
+export const getMe = (req, res) => {
+  req.params.id = req.user.id;
+  next();
+};
 
 export const createUser = (req, res) => {
   res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
