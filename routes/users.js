@@ -30,7 +30,7 @@ router
 router
   .route('/:id')
   .get(authMiddleware.verifyUser, userController.getUser)
-  .patch(authMiddleware.verifyUser, userController.updateUser)
-  .delete(authMiddleware.verifyUser, userController.deleteUser);
+  .patch(userController.updateUser)
+  .delete(userController.deleteUser);
 
 export default router;
