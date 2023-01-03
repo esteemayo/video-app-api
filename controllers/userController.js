@@ -50,7 +50,22 @@ export const updateUser = asyncHandler(async (req, res, next) => {
 
 export const updateMe = asyncHandler(async (req, res, next) => { });
 
-export const deleteUser = asyncHandler(async (req, res, next) => { });
+export const deleteUser = asyncHandler(async (req, res, next) => {
+  const { id: userId } = req.params;
+
+  const user = await User.findByIdAndDelete(userId);
+
+  if (!user) {
+    return next(
+      new NotFoundError(`There is no user with the given ID ↔ ${userId}`)
+    );
+  }
+
+  res.status(StatusCodes.NO_CONTENT).json({
+    status: 'success',
+    user: null,
+  });
+});
 
 export const deleteMe = asyncHandler(async (req, res, next) => { });
 
