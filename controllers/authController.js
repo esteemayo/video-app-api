@@ -30,17 +30,7 @@ export const signin = asyncHandler(async (req, res, next) => {
     return next(new UnauthenticatedError('Incorrect username or password'));
   }
 
-  const token = user.generateToken();
-
-  res
-    .cookie('access_token', token, {
-      httpOnly: true,
-    })
-    .status(StatusCodes.OK)
-    .json({
-      status: 'success',
-      user,
-    });
+  createSendToken(user, StatusCodes.OK, req, res);
 });
 
 export const forgotPassword = asyncHandler(async (req, res, next) => { });
