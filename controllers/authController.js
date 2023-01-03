@@ -16,7 +16,22 @@ export const signup = asyncHandler(async (req, res, next) => {
   }
 });
 
-export const signin = asyncHandler(async (req, res, next) => { });
+export const signin = asyncHandler(async (req, res, next) => {
+  const { username, password } = req.body;
+
+  const user = await User.findOne({ username });
+  if (!user || !(await user.comparePassword(password))) {
+    return next(new UnauthenticatedError('Incorrect username or password'));
+  }
+
+  const token = user.generateToken();
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    token,
+    user,
+  });
+});
 
 export const forgotPassword = asyncHandler(async (req, res, next) => { });
 
