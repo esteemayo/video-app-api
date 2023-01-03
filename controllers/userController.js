@@ -5,7 +5,20 @@ import asyncHandler from 'express-async-handler';
 import User from '../models/User.js';
 import NotFoundError from '../errors/notFound.js';
 
-export const getUsers = asyncHandler(async (req, res, next) => { });
+export const getUsers = asyncHandler(async (req, res, next) => {
+  const query = req.query.new;
+
+  const users = query
+    ? await User.find().sort('-createdAt').limit(5)
+    : await User.find().sort('-_id');
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    requestedAt: req.requestTime,
+    results: users.length,
+    users,
+  });
+});
 
 export const getUser = asyncHandler(async (req, res, next) => {
   const { id: userId } = req.params;
