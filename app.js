@@ -2,6 +2,7 @@
 import express from 'express';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
 
 // requiring routes
 import authRoute from './routes/auth.js';
@@ -20,6 +21,8 @@ if (app.get('env') === 'development') {
 }
 
 app.use(express.json({ limit: '10kb' }));
+
+app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // api routes
 app.use('/api/v1/auth', authRoute);
