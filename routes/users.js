@@ -22,6 +22,11 @@ router.patch('/like/:videoId', userController.likeVideo);
 
 router.patch('/dislike/:videoId', userController.dislikeVideo);
 
+router.get('/stats',
+  authMiddleware.restrictTo('admin'),
+  userController.getUserStats,
+);
+
 router
   .route('/')
   .get(userController.getUsers)
