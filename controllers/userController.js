@@ -127,4 +127,11 @@ export const dislikeVideo = asyncHandler(async (req, res, next) => { });
 
 export const getMe = (req, res) => { };
 
-export const createUser = (req, res) => { };
+export const createUser = (req, res) => {
+  res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+    status: 'fail',
+    message: `This route is not defined! Please use ${req.protocol}://${req.get(
+      'host'
+    )}/api/v1/users/register`,
+  });
+};
