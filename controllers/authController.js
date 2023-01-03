@@ -32,7 +32,7 @@ export const signin = asyncHandler(async (req, res, next) => {
   const token = user.generateToken();
 
   res
-    .cookie('access_token', {
+    .cookie('access_token', token, {
       httpOnly: true,
     })
     .status(StatusCodes.OK)
