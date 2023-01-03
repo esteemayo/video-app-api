@@ -64,7 +64,30 @@ export const updateUser = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const updateMe = asyncHandler(async (req, res, next) => { });
+export const updateMe = asyncHandler(async (req, res, next) => {
+  const { password, passwordConfirm } = req.body;
+
+  if (password || passwordConfirm) {
+    return next(
+      new BadRequestError(
+        `This route is not for password updates. Please use update ${req.protocol
+        }://${req.get('host')}/api/v1/auth/update-my-password`
+      )
+    );
+  }
+
+  const filterBody = _.pick(req.body, ['img', 'name', 'email', 'username']);
+  const updatedUser = await User.findByIdAndUpdate(
+    req.user.id,
+    { $set: { ...filterBody } },
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+
+  createSendToken(updatedUser, StatusCodes.OK, req, res);
+});
 
 export const deleteUser = asyncHandler(async (req, res, next) => {
   const { id: userId } = req.params;
