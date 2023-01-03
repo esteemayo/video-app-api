@@ -4,8 +4,8 @@ import { StatusCodes } from 'http-status-codes';
 import asyncHandler from 'express-async-handler';
 
 import User from '../models/User.js';
-import NotFoundError from '../errors/notFound.js';
 import BadRequestError from '../errors/badRequest.js';
+import NotFoundError from '../errors/notFound.js';
 import createSendToken from '../utils/createSendToken.js';
 
 export const getUsers = asyncHandler(async (req, res, next) => {
