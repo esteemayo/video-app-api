@@ -17,6 +17,8 @@ if (app.get('env') === 'development') {
   app.use(morgan('dev'));
 }
 
+app.use(express.json({ limit: '10kb' }));
+
 // api routes
 app.use('/api/v1/auth', authRoute);
 app.use('/api/v1/users', userRoute);
