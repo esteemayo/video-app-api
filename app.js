@@ -8,6 +8,7 @@ import authRoute from './routes/auth.js';
 import userRoute from './routes/users.js';
 import videoRoute from './routes/videos.js';
 import commentRoute from './routes/comments.js';
+import NotFoundError from './errors/notFound.js';
 
 dotenv.config({ path: './variables.env' });
 
