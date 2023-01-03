@@ -9,6 +9,7 @@ import userRoute from './routes/users.js';
 import videoRoute from './routes/videos.js';
 import commentRoute from './routes/comments.js';
 import NotFoundError from './errors/notFound.js';
+import globalErrorHandler from './middlewares/errorHandler.js';
 
 dotenv.config({ path: './variables.env' });
 
