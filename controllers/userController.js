@@ -3,6 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import asyncHandler from 'express-async-handler';
 
 import User from '../models/User.js';
+import NotFoundError from '../errors/notFound.js';
 
 export const getUsers = asyncHandler(async (req, res, next) => { });
 
