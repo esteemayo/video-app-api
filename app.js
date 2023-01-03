@@ -24,6 +24,12 @@ app.use(express.json({ limit: '10kb' }));
 
 app.use(cookieParser(process.env.COOKIE_SECRET));
 
+// test middleware
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  next();
+});
+
 // api routes
 app.use('/api/v1/auth', authRoute);
 app.use('/api/v1/users', userRoute);
