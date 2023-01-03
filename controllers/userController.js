@@ -23,6 +23,15 @@ export const getUsers = asyncHandler(async (req, res, next) => {
   });
 });
 
+export const getUserStats = asyncHandler(async (req, res, next) => {
+  const stats = await User.getUserStats();
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    stats,
+  });
+});
+
 export const getUser = asyncHandler(async (req, res, next) => {
   const { id: userId } = req.params;
 
