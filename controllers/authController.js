@@ -31,11 +31,15 @@ export const signin = asyncHandler(async (req, res, next) => {
 
   const token = user.generateToken();
 
-  res.status(StatusCodes.OK).json({
-    status: 'success',
-    token,
-    user,
-  });
+  res
+    .cookie('access_token', {
+      httpOnly: true,
+    })
+    .status(StatusCodes.OK)
+    .json({
+      status: 'success',
+      user,
+    });
 });
 
 export const forgotPassword = asyncHandler(async (req, res, next) => { });
