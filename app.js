@@ -4,6 +4,7 @@ import morgan from 'morgan';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
+import cors from 'cors';
 
 // requiring routes
 import authRoute from './routes/auth.js';
@@ -16,6 +17,9 @@ import globalErrorHandler from './middlewares/errorHandler.js';
 dotenv.config({ path: './variables.env' });
 
 const app = express();
+
+app.use(cors());
+app.options('*', cors());
 
 app.use(helmet());
 
