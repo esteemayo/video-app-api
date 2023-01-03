@@ -3,6 +3,7 @@ import express from 'express';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+import helmet from 'helmet';
 
 // requiring routes
 import authRoute from './routes/auth.js';
@@ -15,6 +16,8 @@ import globalErrorHandler from './middlewares/errorHandler.js';
 dotenv.config({ path: './variables.env' });
 
 const app = express();
+
+app.use(helmet());
 
 if (app.get('env') === 'development') {
   app.use(morgan('dev'));
