@@ -29,7 +29,7 @@ router.get('/stats',
 
 router
   .route('/')
-  .get(userController.getUsers)
+  .get(authMiddleware.restrictTo('admin'), userController.getUsers)
   .post(userController.createUser);
 
 router
