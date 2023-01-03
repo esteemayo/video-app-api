@@ -22,7 +22,7 @@ if (app.get('env') === 'development') {
 
 app.use(express.json({ limit: '10kb' }));
 
-app.use(cookieParser(process.env.COOKIE_SECRET));
+app.use(cookieParser());
 
 // test middleware
 app.use((req, res, next) => {
