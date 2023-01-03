@@ -12,7 +12,7 @@ export const signup = asyncHandler(async (req, res, next) => {
   }
 });
 
-export const login = asyncHandler(async (req, res, next) => { });
+export const signin = asyncHandler(async (req, res, next) => { });
 
 export const forgotPassword = asyncHandler(async (req, res, next) => { });
 
