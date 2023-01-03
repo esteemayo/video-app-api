@@ -18,7 +18,7 @@ export const getUsers = asyncHandler(async (req, res, next) => {
   res.status(StatusCodes.OK).json({
     status: 'success',
     requestedAt: req.requestTime,
-    results: users.length,
+    nbHits: users.length,
     users,
   });
 });
