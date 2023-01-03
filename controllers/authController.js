@@ -20,6 +20,10 @@ export const signup = asyncHandler(async (req, res, next) => {
 export const signin = asyncHandler(async (req, res, next) => {
   const { username, password } = req.body;
 
+  if (!username || !password) {
+    return next(new BadRequestError('Please enter your username and password'));
+  }
+
   const user = await User.findOne({ username });
   if (!user || !(await user.comparePassword(password))) {
     return next(new UnauthenticatedError('Incorrect username or password'));
