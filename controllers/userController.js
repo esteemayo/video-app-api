@@ -106,7 +106,16 @@ export const deleteUser = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const deleteMe = asyncHandler(async (req, res, next) => { });
+export const deleteMe = asyncHandler(async (req, res, next) => {
+  const { id: userId } = req.user;
+
+  await User.findByIdAndUpdate(userId, { active: false });
+
+  res.status(StatusCodes.NO_CONTENT).json({
+    status: 'success',
+    user: null,
+  });
+});
 
 export const subscribe = asyncHandler(async (req, res, next) => { });
 
