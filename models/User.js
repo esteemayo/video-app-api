@@ -8,6 +8,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Please enter your name'],
   },
+  username: {
+    type: String,
+    trim: true,
+    unique: true,
+    lowercase: true,
+    required: [true, 'Please enter your username'],
+    match: [/^[a-zA-Z0-9]+$/, 'Username is invalid'],
+  },
   email: {
     type: String,
     unique: true,
