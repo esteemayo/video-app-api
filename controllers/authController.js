@@ -11,10 +11,7 @@ export const signup = asyncHandler(async (req, res, next) => {
   const user = await User.create({ ...req.body });
 
   if (user) {
-    return res.status(StatusCodes.CREATED).json({
-      status: 'success',
-      user,
-    });
+    createSendToken(user, StatusCodes.CREATED, req, res);
   }
 });
 
