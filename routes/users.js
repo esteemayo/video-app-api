@@ -29,8 +29,8 @@ router
 
 router
   .route('/:id')
-  .get(userController.getUser)
-  .patch(userController.updateUser)
-  .delete(userController.deleteUser);
+  .get(authMiddleware.verifyUser, userController.getUser)
+  .patch(authMiddleware.verifyUser, userController.updateUser)
+  .delete(authMiddleware.verifyUser, userController.deleteUser);
 
 export default router;
