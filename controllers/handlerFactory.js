@@ -20,9 +20,9 @@ export const getOneById = (Model) =>
   asyncHandler(async (req, res, next) => {
     const { id: docId } = req.params;
 
-    const video = await Model.findById(docId);
+    const doc = await Model.findById(docId);
 
-    if (!video) {
+    if (!doc) {
       return next(
         new NotFoundError(`There is no video with the given ID ↔ ${docId}`)
       );
@@ -30,7 +30,7 @@ export const getOneById = (Model) =>
 
     res.status(StatusCodes.OK).json({
       status: 'success',
-      video,
+      doc,
     });
   });
 
