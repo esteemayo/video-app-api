@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 import helmet from 'helmet';
 import cors from 'cors';
+import rateLimit from 'express-rate-limit';
 
 // requiring routes
 import authRoute from './routes/auth.js';
