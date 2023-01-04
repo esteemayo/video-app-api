@@ -1,3 +1,4 @@
+/* eslint-disable */
 import express from 'express';
 
 import * as videoController from '../controllers/videoController.js';
