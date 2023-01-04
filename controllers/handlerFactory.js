@@ -86,3 +86,21 @@ export const updateOne = (Model) =>
       doc,
     });
   });
+
+export const deleteOne = (Model) =>
+  asyncHandler(async (req, res, next) => {
+    const { id: docId } = req.params;
+
+    const doc = await Model.findByIdAndDelete(docId);
+
+    if (!doc) {
+      return next(
+        new NotFoundError(`There is no document with the given ID ↔ ${docId}`)
+      );
+    }
+
+    return res.status(StatusCodes.NO_CONTENT).json({
+      status: 'success',
+      doc: null,
+    });
+  });
