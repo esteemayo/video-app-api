@@ -126,7 +126,20 @@ export const deleteMe = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const subscribe = asyncHandler(async (req, res, next) => { });
+export const subscribe = asyncHandler(async (req, res, next) => {
+  await User.findById(req.user.id, {
+    $push: { subscribedUsers: req.params.id },
+  });
+
+  await User.findByIdAndUpdate(req.params.id, {
+    $inc: { subscribers: 1 },
+  });
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    message: 'Subscription successfull',
+  });
+});
 
 export const unsubscribe = asyncHandler(async (req, res, next) => { });
 
