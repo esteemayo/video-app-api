@@ -6,13 +6,13 @@ import NotFoundError from '../errors/notFound.js';
 
 export const getAll = (Model) =>
   asyncHandler(async (req, res, next) => {
-    const videos = await Video.find();
+    const docs = await Model.find();
 
     res.status(StatusCodes.OK).json({
       status: 'success',
       requestedAt: req.requestTime,
-      nbHits: videos.length,
-      videos,
+      nbHits: docs.length,
+      docs,
     });
   });
 
