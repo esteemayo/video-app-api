@@ -4,6 +4,7 @@ import asyncHandler from 'express-async-handler';
 
 import Video from '../models/Video.js';
 import NotFoundError from '../errors/notFound.js';
+import ForbiddenError from '../errors/forbidden.js';
 
 export const getVideos = asyncHandler(async (req, res, next) => { });
 
