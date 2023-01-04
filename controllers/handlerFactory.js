@@ -24,7 +24,7 @@ export const getOneById = (Model) =>
 
     if (!doc) {
       return next(
-        new NotFoundError(`There is no video with the given ID ↔ ${docId}`)
+        new NotFoundError(`There is no document with the given ID ↔ ${docId}`)
       );
     }
 
