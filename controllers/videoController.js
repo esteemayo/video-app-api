@@ -32,7 +32,7 @@ export const getVideoBySlug = asyncHandler(async (req, res, next) => {
 
   if (!video) {
     return next(
-      new NotFoundError(`There is no video with the given ID ↔ ${videoId}`)
+      new NotFoundError(`There is no video with the given SLUG ↔ ${slug}`)
     );
   }
 
