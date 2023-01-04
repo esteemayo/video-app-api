@@ -37,6 +37,11 @@ const videoSchema = new mongoose.Schema({
     type: [String],
     default: [],
   },
+  user: {
+    type: mongoose.Types.ObjectId,
+    ref: 'User',
+    required: [true, 'A video must belong to a user'],
+  },
 }, {
   timestamps: true,
 });
