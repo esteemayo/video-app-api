@@ -8,6 +8,8 @@ const router = express.Router();
 
 router.get('/trend', videoController.getVideos);
 
+router.get('/random', videoController.getVideos);
+
 router.get(
   '/details/:slug',
   authMiddleware.verifyUser,
