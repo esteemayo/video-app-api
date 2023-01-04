@@ -6,7 +6,7 @@ import * as videoController from '../controllers/videoController.js';
 
 const router = express.Router();
 
-router.get('/trend', videoController.getVideos);
+router.get('/trend', videoController.getTrendingVideos);
 
 router.get('/random', videoController.getVideos);
 
