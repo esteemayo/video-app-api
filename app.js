@@ -7,6 +7,7 @@ import helmet from 'helmet';
 import cors from 'cors';
 import rateLimit from 'express-rate-limit';
 import xss from 'xss-clean';
+import mongoSanitize from 'express-mongo-sanitize';
 
 // requiring routes
 import authRoute from './routes/auth.js';
