@@ -21,6 +21,8 @@ export const getTrendingVideos = asyncHandler(async (req, res, next) => { });
 
 export const getRandomVideos = asyncHandler(async (req, res, next) => { });
 
+export const subscribe = asyncHandler(async (req, res, next) => { });
+
 export const getVideoById = asyncHandler(async (req, res, next) => {
   const { id: videoId } = req.params;
 
