@@ -23,6 +23,34 @@ export const createVideo = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const updateVideo = asyncHandler(async (req, res, next) => { });
+export const updateVideo = asyncHandler(async (req, res, next) => {
+  const { id: videoId } = req.params;
+
+  const video = await Video.findById(videoId);
+
+  if (!video) {
+    return next(
+      new NotFoundError(`There is no video with the given ID ↔ ${videoId}`)
+    );
+  }
+
+  if (req.user.id === video.user || req.user.role === 'admin') {
+    const updatedVideo = await Video.findByIdAndUpdate(
+      videoId,
+      { $set: { ...req.body } },
+      {
+        new: true,
+        runValidators: true,
+      },
+    );
+
+    return res.status(StatusCodes.OK).json({
+      status: 'success',
+      video: updatedVideo,
+    });
+  }
+
+  return next(new ForbiddenError('You are not authorized to perform this operation'));
+});
 
 export const deleteVideo = asyncHandler(async (req, res, next) => { });
