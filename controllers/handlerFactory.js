@@ -61,3 +61,28 @@ export const createOne = (Model) =>
       doc,
     });
   });
+
+export const updateOne = (Model) =>
+  asyncHandler(async (req, res, next) => {
+    const { id: docId } = req.params;
+
+    const doc = await Model.findByIdAndUpdate(
+      docId,
+      { $set: { ...req.body } },
+      {
+        new: true,
+        runValidators: true,
+      },
+    );
+
+    if (!doc) {
+      return next(
+        new NotFoundError(`There is no document with the given ID ↔ ${docId}`)
+      );
+    }
+
+    return res.status(StatusCodes.OK).json({
+      status: 'success',
+      doc,
+    });
+  });
