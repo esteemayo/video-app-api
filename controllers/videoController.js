@@ -6,7 +6,16 @@ import Video from '../models/Video.js';
 import NotFoundError from '../errors/notFound.js';
 import ForbiddenError from '../errors/forbidden.js';
 
-export const getVideos = asyncHandler(async (req, res, next) => { });
+export const getVideos = asyncHandler(async (req, res, next) => {
+  const videos = await Video.find();
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    requestedAt: req.requestTime,
+    nbHits: videos.length,
+    videos,
+  });
+});
 
 export const getVideoById = asyncHandler(async (req, res, next) => {
   const { id: videoId } = req.params;
