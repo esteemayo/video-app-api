@@ -10,7 +10,22 @@ export const getVideos = asyncHandler(async (req, res, next) => { });
 
 export const getVideoById = asyncHandler(async (req, res, next) => { });
 
-export const getVideoBySlug = asyncHandler(async (req, res, next) => { });
+export const getVideoBySlug = asyncHandler(async (req, res, next) => {
+  const { slug } = req.params;
+
+  const video = await Video.findOne({ slug });
+
+  if (!video) {
+    return next(
+      new NotFoundError(`There is no video with the given ID ↔ ${videoId}`)
+    );
+  }
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    video,
+  });
+});
 
 export const createVideo = asyncHandler(async (req, res, next) => {
   if (!req.body.user) req.body.user = req.user.id;
