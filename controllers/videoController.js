@@ -98,6 +98,8 @@ export const updateVideo = asyncHandler(async (req, res, next) => {
   return next(new ForbiddenError('You can update only your video'));
 });
 
+export const views = asyncHandler(async (req, res, next) => { });
+
 export const deleteVideo = asyncHandler(async (req, res, next) => {
   const { id: videoId } = req.params;
 
