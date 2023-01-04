@@ -51,3 +51,13 @@ export const getOneBySlug = (Model) =>
       doc,
     });
   });
+
+export const createOne = (Model) =>
+  asyncHandler(async (req, res, next) => {
+    const doc = await Model.create({ ...req.body });
+
+    res.status(StatusCodes.CREATED).json({
+      status: 'success',
+      doc,
+    });
+  });
