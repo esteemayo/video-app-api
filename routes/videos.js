@@ -10,6 +10,8 @@ router.get('/trend', videoController.getVideos);
 
 router.get('/random', videoController.getVideos);
 
+router.patch('/view/:id', videoController.getVideos);
+
 router.get(
   '/details/:slug',
   authMiddleware.verifyUser,
