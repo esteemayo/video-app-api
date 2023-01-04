@@ -17,6 +17,8 @@ export const getVideos = asyncHandler(async (req, res, next) => {
   });
 });
 
+export const getTrendingVideos = asyncHandler(async (req, res, next) => { });
+
 export const getVideoById = asyncHandler(async (req, res, next) => {
   const { id: videoId } = req.params;
 
