@@ -47,6 +47,8 @@ app.use(mongoSanitize());
 
 app.use(xss());
 
+app.use(hpp());
+
 // test middleware
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
