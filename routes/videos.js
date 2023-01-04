@@ -10,7 +10,7 @@ router.get('/trend', videoController.getTrendingVideos);
 
 router.get('/random', videoController.getRandomVideos);
 
-router.get('/subscribe', videoController.getVideos);
+router.get('/subscribe', videoController.subscribe);
 
 router.patch('/view/:id', videoController.getVideos);
 
