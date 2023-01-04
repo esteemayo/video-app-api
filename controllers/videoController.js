@@ -112,5 +112,5 @@ export const deleteVideo = asyncHandler(async (req, res, next) => {
     });
   }
 
-  return next(new ForbiddenError('You are not authorized to perform this operation'));
+  return next(new ForbiddenError('You can update only your video'));
 });
