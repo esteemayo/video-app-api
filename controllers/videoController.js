@@ -3,8 +3,8 @@ import { StatusCodes } from 'http-status-codes';
 import asyncHandler from 'express-async-handler';
 
 import Video from '../models/Video.js';
-import NotFoundError from '../errors/notFound.js';
 import ForbiddenError from '../errors/forbidden.js';
+import NotFoundError from '../errors/notFound.js';
 
 export const getVideos = asyncHandler(async (req, res, next) => {
   const videos = await Video.find();
