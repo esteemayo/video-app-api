@@ -141,7 +141,20 @@ export const subscribe = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const unsubscribe = asyncHandler(async (req, res, next) => { });
+export const unsubscribe = asyncHandler(async (req, res, next) => {
+  await User.findById(req.user.id, {
+    $pull: { subscribedUsers: req.params.id },
+  });
+
+  await User.findByIdAndUpdate(req.params.id, {
+    $inc: { subscribers: -1 },
+  });
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    message: 'Unsubscription successfull',
+  });
+});
 
 export const likeVideo = asyncHandler(async (req, res, next) => { });
 
