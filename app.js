@@ -42,6 +42,8 @@ app.use(express.json({ limit: '10kb' }));
 
 app.use(cookieParser());
 
+app.use(mongoSanitize());
+
 app.use(xss());
 
 // test middleware
