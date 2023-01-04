@@ -15,3 +15,21 @@ export const getAll = (Model) =>
       videos,
     });
   });
+
+export const getOne = (Model) =>
+  asyncHandler(async (req, res, next) => {
+    const { id: docId } = req.params;
+
+    const video = await Model.findById(docId);
+
+    if (!video) {
+      return next(
+        new NotFoundError(`There is no video with the given ID ↔ ${docId}`)
+      );
+    }
+
+    res.status(StatusCodes.OK).json({
+      status: 'success',
+      video,
+    });
+  });
