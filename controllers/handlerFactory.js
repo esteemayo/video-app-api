@@ -33,3 +33,21 @@ export const getOneById = (Model) =>
       video,
     });
   });
+
+export const getOneBySlug = (Model) =>
+  asyncHandler(async (req, res, next) => {
+    const { slug } = req.params;
+
+    const doc = await Model.findOne({ slug });
+
+    if (!doc) {
+      return next(
+        new NotFoundError(`There is no document with the given SLUG ↔ ${slug}`)
+      );
+    }
+
+    res.status(StatusCodes.OK).json({
+      status: 'success',
+      doc,
+    });
+  });
