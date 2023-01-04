@@ -92,4 +92,25 @@ export const updateVideo = asyncHandler(async (req, res, next) => {
   return next(new ForbiddenError('You are not authorized to perform this operation'));
 });
 
-export const deleteVideo = asyncHandler(async (req, res, next) => { });
+export const deleteVideo = asyncHandler(async (req, res, next) => {
+  const { id: videoId } = req.params;
+
+  const video = await Video.findById(videoId);
+
+  if (!video) {
+    return next(
+      new NotFoundError(`There is no video with the given ID ↔ ${videoId}`)
+    );
+  }
+
+  if (req.user.id === video.user || req.user.role === 'admin') {
+    await video.remove();
+
+    return res.status(StatusCodes.NO_CONTENT).json({
+      status: 'success',
+      video: null,
+    });
+  }
+
+  return next(new ForbiddenError('You are not authorized to perform this operation'));
+});
