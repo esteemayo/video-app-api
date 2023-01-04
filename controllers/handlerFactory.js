@@ -16,7 +16,7 @@ export const getAll = (Model) =>
     });
   });
 
-export const getOne = (Model) =>
+export const getOneById = (Model) =>
   asyncHandler(async (req, res, next) => {
     const { id: docId } = req.params;
 
