@@ -12,7 +12,7 @@ router.get('/random', videoController.getRandomVideos);
 
 router.get('/subscribe', videoController.subscribe);
 
-router.patch('/view/:id', videoController.getVideos);
+router.patch('/view/:id', videoController.views);
 
 router.get(
   '/details/:slug',
