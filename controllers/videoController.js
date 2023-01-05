@@ -20,6 +20,13 @@ export const getVideos = asyncHandler(async (req, res, next) => {
 
   query = query.find(JSON.parse(queryStr));
 
+  if (req.query.sort) {
+    const sortBy = req.query.sort.split(',').join(' ');
+    query = query.sort(sortBy);
+  } else {
+    query = query.sort('-createdAt');
+  }
+
   const videos = await query;
 
   res.status(StatusCodes.OK).json({
