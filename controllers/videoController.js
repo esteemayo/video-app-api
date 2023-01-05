@@ -40,7 +40,19 @@ export const getRandomVideos = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const subscribe = asyncHandler(async (req, res, next) => { });
+export const subscribe = asyncHandler(async (req, res, next) => {
+  const user = await User.findById(req.user.id);
+  const subscribedChannel = user.subscribedUsers;
+
+  const list = await Promise.all(subscribedChannel.map((channel) => {
+    return Video.find({ user: channel });
+  }));
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    list,
+  });
+});
 
 export const getVideoById = asyncHandler(async (req, res, next) => {
   const { id: videoId } = req.params;
