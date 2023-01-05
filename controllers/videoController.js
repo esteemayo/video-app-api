@@ -41,13 +41,15 @@ export const subscribe = asyncHandler(async (req, res, next) => {
   const user = await User.findById(req.user.id);
   const subscribedChannel = user.subscribedUsers;
 
-  const list = await Promise.all(subscribedChannel.map((channel) => {
+  let list = await Promise.all(subscribedChannel.map((channel) => {
     return Video.find({ user: channel });
   }));
 
+  list = list.flat().sort((a, b) => b.createdAt - a.createdAt);
+
   res.status(StatusCodes.OK).json({
     status: 'success',
-    list: list.flat().sort((a, b) => b.createdAt - a.createdAt),
+    list,
   });
 });
 
