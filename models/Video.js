@@ -58,7 +58,7 @@ videoSchema.pre('save', async function (next) {
   }
 });
 
-videoSchema.methods.getRandomVideos = async function () {
+videoSchema.statics.getRandomVideos = async function () {
   return await this.aggregate([
     {
       $sample: { size: 40 },
