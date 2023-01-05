@@ -53,7 +53,16 @@ export const subscribe = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const getVideosByTag = asyncHandler(async (req, res, next) => { });
+export const getVideosByTag = asyncHandler(async (req, res, next) => {
+  const tags = req.query.tags.split(',');
+
+  const videos = await Video.find({ tags: { $in: tags } });
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    videos,
+  });
+});
 
 export const searchVideo = asyncHandler(async (req, res, next) => { });
 
