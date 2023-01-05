@@ -52,6 +52,28 @@ export const createComment = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const updateComment = asyncHandler(async (req, res, next) => { });
+export const updateComment = asyncHandler(async (req, res, next) => {
+  const { id: commentId } = req.params;
+
+  const updatedComment = await Comment.findByIdAndUpdate(
+    commentId,
+    { $set: { ...req.body } },
+    {
+      new: true,
+      runValidators: true,
+    },
+  );
+
+  if (!updatedComment) {
+    return next(
+      new NotFoundError(`There is no comment with the given ID ↔ ${commentId}`)
+    );
+  }
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    comment: updatedComment,
+  });
+});
 
 export const deleteComment = asyncHandler(async (req, res, next) => { });
