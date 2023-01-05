@@ -53,7 +53,7 @@ export const subscribe = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const getVideoByTag = asyncHandler(async (req, res, next) => { });
+export const getVideosByTag = asyncHandler(async (req, res, next) => { });
 
 export const searchVideo = asyncHandler(async (req, res, next) => { });
 
