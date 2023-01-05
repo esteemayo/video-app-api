@@ -98,7 +98,29 @@ export const updateVideo = asyncHandler(async (req, res, next) => {
   return next(new ForbiddenError('You can update only your video'));
 });
 
-export const views = asyncHandler(async (req, res, next) => { });
+export const views = asyncHandler(async (req, res, next) => {
+  const { id: videoId } = req.params;
+
+  const view = await Video.findByIdAndUpdate(
+    videoId,
+    { $inc: { views: 1 } },
+    {
+      new: true,
+      runValidators: true,
+    }
+  );
+
+  if (!video) {
+    return next(
+      new NotFoundError(`There is no video with the given ID ↔ ${videoId}`)
+    );
+  }
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    video,
+  });
+});
 
 export const deleteVideo = asyncHandler(async (req, res, next) => {
   const { id: videoId } = req.params;
