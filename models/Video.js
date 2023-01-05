@@ -64,7 +64,7 @@ videoSchema.statics.getRandomVideos = async function () {
       $sample: { size: 40 },
     },
   ]);
-}
+};
 
 const Video = mongoose.models.Video || mongoose.model('Video', videoSchema);
 
