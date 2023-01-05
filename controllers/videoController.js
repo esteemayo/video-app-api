@@ -9,7 +9,12 @@ import ForbiddenError from '../errors/forbidden.js';
 import NotFoundError from '../errors/notFound.js';
 
 export const getVideos = asyncHandler(async (req, res, next) => {
-  const videos = await Video.find();
+  const queryObj = { ...req.query };
+  const excludedFields = ['page', 'sort', 'limit', 'fields'];
+  excludedFields.forEach((item) => delete queryObj[item]);
+
+  const query = Video.find(queryObj);
+  const videos = await query;
 
   res.status(StatusCodes.OK).json({
     status: 'success',
