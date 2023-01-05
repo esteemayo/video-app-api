@@ -14,6 +14,12 @@ export const getVideos = asyncHandler(async (req, res, next) => {
   excludedFields.forEach((item) => delete queryObj[item]);
 
   let query = Video.find(queryObj);
+
+  let queryStr = JSON.stringify(queryObj);
+  queryStr = queryStr.match(/b(gte|gt|lte|lt)b/, match => `$${match}`);
+
+  query = query.find(JSON.parse(queryStr));
+
   const videos = await query;
 
   res.status(StatusCodes.OK).json({
