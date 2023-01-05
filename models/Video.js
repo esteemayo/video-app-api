@@ -10,6 +10,9 @@ const videoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  slug: {
+    type: String,
+  },
   imgUrl: {
     type: String,
     required: true,
