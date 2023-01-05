@@ -101,7 +101,7 @@ export const updateVideo = asyncHandler(async (req, res, next) => {
 export const views = asyncHandler(async (req, res, next) => {
   const { id: videoId } = req.params;
 
-  const view = await Video.findByIdAndUpdate(
+  const video = await Video.findByIdAndUpdate(
     videoId,
     { $inc: { views: 1 } },
     {
