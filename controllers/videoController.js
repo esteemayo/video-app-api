@@ -19,7 +19,18 @@ export const getVideos = asyncHandler(async (req, res, next) => {
 
 export const getTrendingVideos = asyncHandler(async (req, res, next) => { });
 
-export const getRandomVideos = asyncHandler(async (req, res, next) => { });
+export const getRandomVideos = asyncHandler(async (req, res, next) => {
+  const videos = await Video.aggregate([
+    {
+      $sample: { size: 40 },
+    },
+  ]);
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    videos,
+  });
+});
 
 export const subscribe = asyncHandler(async (req, res, next) => { });
 
