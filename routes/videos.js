@@ -10,7 +10,11 @@ router.get('/trend', videoController.getTrendingVideos);
 
 router.get('/random', videoController.getRandomVideos);
 
-router.get('/subscribe', videoController.subscribe);
+router.get(
+  '/subscribe',
+  authMiddleware.protect,
+  videoController.subscribe
+);
 
 router.patch('/view/:id', videoController.views);
 
