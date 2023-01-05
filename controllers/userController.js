@@ -142,7 +142,7 @@ export const subscribe = asyncHandler(async (req, res, next) => {
 });
 
 export const unsubscribe = asyncHandler(async (req, res, next) => {
-  await User.findById(req.user.id, {
+  await User.findByIdAndUpdate(req.user.id, {
     $pull: { subscribedUsers: req.params.id },
   });
 
