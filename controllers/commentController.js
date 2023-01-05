@@ -23,7 +23,22 @@ export const getComments = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const getComment = asyncHandler(async (req, res, next) => { });
+export const getComment = asyncHandler(async (req, res, next) => {
+  const { id: commentId } = req.params;
+
+  const comment = await Comment.findById(commentId);
+
+  if (!comment) {
+    return next(
+      new NotFoundError(`There is no comment with the given ID ↔ ${commentId}`)
+    );
+  }
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    comment,
+  });
+});
 
 export const createComment = asyncHandler(async (req, res, next) => { });
 
