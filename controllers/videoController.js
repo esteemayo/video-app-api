@@ -5,6 +5,7 @@ import asyncHandler from 'express-async-handler';
 
 import Video from '../models/Video.js';
 import User from '../models/User.js';
+import APIFeatures from '../utils/apiFeatures.js';
 import ForbiddenError from '../errors/forbidden.js';
 import NotFoundError from '../errors/notFound.js';
 import APIFeatures from '../utils/apiFeatures.js';
