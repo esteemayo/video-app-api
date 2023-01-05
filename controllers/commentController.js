@@ -76,4 +76,19 @@ export const updateComment = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const deleteComment = asyncHandler(async (req, res, next) => { });
+export const deleteComment = asyncHandler(async (req, res, next) => {
+  const { id: commentId } = req.params;
+
+  const comment = await Comment.findByIdAndDelete(commentId);
+
+  if (!comment) {
+    return next(
+      new NotFoundError(`There is no comment with the given ID ↔ ${commentId}`)
+    );
+  }
+
+  res.status(StatusCodes.NO_CONTENT).json({
+    status: 'success',
+    comment: null,
+  });
+});
