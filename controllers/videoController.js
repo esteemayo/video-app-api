@@ -17,7 +17,14 @@ export const getVideos = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const getTrendingVideos = asyncHandler(async (req, res, next) => { });
+export const getTrendingVideos = asyncHandler(async (req, res, next) => {
+  const videos = await Video.find().sort({ views: -1 });
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    videos,
+  });
+});
 
 export const getRandomVideos = asyncHandler(async (req, res, next) => {
   const videos = await Video.aggregate([
