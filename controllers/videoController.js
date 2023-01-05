@@ -16,7 +16,7 @@ export const getVideos = asyncHandler(async (req, res, next) => {
   let queryStr = JSON.stringify(queryObj);
   queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
 
-  let query = query.find(JSON.parse(queryStr));
+  let query = Video.find(JSON.parse(queryStr));
 
   if (req.query.sort) {
     const sortBy = req.query.sort.split(',').join(' ');
