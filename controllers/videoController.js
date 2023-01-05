@@ -67,7 +67,9 @@ export const getVideosByTag = asyncHandler(async (req, res, next) => {
 export const searchVideo = asyncHandler(async (req, res, next) => {
   const { q } = req.query;
 
-  const videos = await Video.find({ title: { $regex: q, $options: 'i' } });
+  const videos = await Video.find({
+    title: { $regex: q, $options: 'i' },
+  });
 
   res.status(StatusCodes.OK).json({
     status: 'success',
