@@ -16,7 +16,7 @@ router.delete('/delete-me', userController.deleteMe);
 
 router.patch('/subscribe/:id', userController.subscribe);
 
-router.patch('/unsubscibe/:id', userController.unsubscribe);
+router.patch('/unsubscribe/:id', userController.unsubscribe);
 
 router.patch('/like/:videoId', userController.likeVideo);
 
