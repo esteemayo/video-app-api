@@ -13,12 +13,10 @@ export const getVideos = asyncHandler(async (req, res, next) => {
   const excludedFields = ['page', 'sort', 'limit', 'fields'];
   excludedFields.forEach((item) => delete queryObj[item]);
 
-  let query = Video.find(queryObj);
-
   let queryStr = JSON.stringify(queryObj);
   queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
 
-  query = query.find(JSON.parse(queryStr));
+  let query = query.find(JSON.parse(queryStr));
 
   if (req.query.sort) {
     const sortBy = req.query.sort.split(',').join(' ');
