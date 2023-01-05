@@ -58,6 +58,14 @@ videoSchema.pre('save', async function (next) {
   }
 });
 
+videoSchema.methods.getRandomVideos = async function () {
+  return await this.aggregate([
+    {
+      $sample: { size: 40 },
+    },
+  ]);
+}
+
 const Video = mongoose.models.Video || mongoose.model('Video', videoSchema);
 
 export default Video;
