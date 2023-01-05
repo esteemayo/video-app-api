@@ -10,6 +10,11 @@ const commentSchema = new mongoose.Schema({
     ref: 'Video',
     required: 'A comment must belong to a video',
   },
+  user: {
+    type: mongoose.Types.ObjectId,
+    ref: 'User',
+    required: 'A comment must belong to a user',
+  },
 }, {
   timestamps: true,
 });
