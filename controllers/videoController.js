@@ -3,6 +3,7 @@ import { StatusCodes } from 'http-status-codes';
 import asyncHandler from 'express-async-handler';
 
 import Video from '../models/Video.js';
+import User from '../models/User.js';
 import ForbiddenError from '../errors/forbidden.js';
 import NotFoundError from '../errors/notFound.js';
 
