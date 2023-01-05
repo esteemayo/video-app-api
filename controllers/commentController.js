@@ -40,7 +40,17 @@ export const getComment = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const createComment = asyncHandler(async (req, res, next) => { });
+export const createComment = asyncHandler(async (req, res, next) => {
+  if (!req.body.user) req.body.user = req.user.id;
+  if (!req.body.video) req.body.video = req.params.videoId;
+
+  const comment = await Comment.create({ ...req.body });
+
+  res.status(StatusCodes.CREATED).json({
+    status: 'success',
+    comment,
+  });
+});
 
 export const updateComment = asyncHandler(async (req, res, next) => { });
 
