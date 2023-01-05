@@ -127,7 +127,7 @@ export const deleteMe = asyncHandler(async (req, res, next) => {
 });
 
 export const subscribe = asyncHandler(async (req, res, next) => {
-  await User.findById(req.user.id, {
+  await User.findByIdAndUpdate(req.user.id, {
     $push: { subscribedUsers: req.params.id },
   });
 
