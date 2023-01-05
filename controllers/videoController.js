@@ -27,6 +27,13 @@ export const getVideos = asyncHandler(async (req, res, next) => {
     query = query.sort('-createdAt');
   }
 
+  if (req.query.fields) {
+    const fields = req.query.fields.split(',').join(' ');
+    query = query.select(fields);
+  } else {
+    query = query.select('-__v');
+  }
+
   const videos = await query;
 
   res.status(StatusCodes.OK).json({
