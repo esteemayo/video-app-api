@@ -47,7 +47,7 @@ export const subscribe = asyncHandler(async (req, res, next) => {
 
   res.status(StatusCodes.OK).json({
     status: 'success',
-    list: list.flat(),
+    list: list.flat().sort((a, b) => b.createdAt - a.createdAt),
   });
 });
 
