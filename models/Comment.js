@@ -5,6 +5,11 @@ const commentSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  video: {
+    type: mongoose.Types.ObjectId,
+    ref: 'Video',
+    required: 'A comment must belong to a video',
+  },
 }, {
   timestamps: true,
 });
