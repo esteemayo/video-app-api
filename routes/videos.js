@@ -16,6 +16,8 @@ router.get(
   videoController.subscribe,
 );
 
+router.get('/tags', videoController.getVideosByTag);
+
 router.patch('/view/:id', videoController.views);
 
 router.get(
