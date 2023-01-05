@@ -13,7 +13,7 @@ router.get('/random', videoController.getRandomVideos);
 router.get(
   '/subscribe',
   authMiddleware.protect,
-  videoController.subscribe
+  videoController.subscribe,
 );
 
 router.patch('/view/:id', videoController.views);
