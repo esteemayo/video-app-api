@@ -13,7 +13,7 @@ export const getVideos = asyncHandler(async (req, res, next) => {
   const excludedFields = ['page', 'sort', 'limit', 'fields'];
   excludedFields.forEach((item) => delete queryObj[item]);
 
-  const query = Video.find(queryObj);
+  let query = Video.find(queryObj);
   const videos = await query;
 
   res.status(StatusCodes.OK).json({
