@@ -99,6 +99,8 @@ export const createVideo = asyncHandler(async (req, res, next) => {
 export const updateVideo = asyncHandler(async (req, res, next) => {
   const { id: videoId } = req.params;
 
+  if (req.body.title) req.body.slug = slugify(req.body.title, { lower: true });
+
   const video = await Video.findById(videoId);
 
   if (!video) {
