@@ -13,7 +13,7 @@ router.get('/videos/:videoId', commentController.getCommentsOnVideo);
 router
   .route('/')
   .get(commentController.getComments)
-  .post(commentController.createComment);
+  .post(authMiddleware.restrictTo('admin'), commentController.createComment);
 
 router
   .route('/:id')
