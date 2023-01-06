@@ -80,7 +80,6 @@ export const updateComment = asyncHandler(async (req, res, next) => {
       },
     );
 
-
     res.status(StatusCodes.OK).json({
       status: 'success',
       comment: updatedComment,
