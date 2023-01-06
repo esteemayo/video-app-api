@@ -6,6 +6,8 @@ import * as commentController from '../controllers/commentController.js';
 
 const router = express.Router();
 
+router.use(authMiddleware.protect);
+
 router
   .route('/')
   .get(commentController.getComments)
