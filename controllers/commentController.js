@@ -25,6 +25,17 @@ export const getComments = asyncHandler(async (req, res, next) => {
   });
 });
 
+export const getCommentsOnVideo = asyncHandler(async (req, res, next) => {
+  const { videoId } = req.params;
+
+  const comments = await Comment.find({ video: videoId });
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    comments,
+  });
+});
+
 export const getComment = asyncHandler(async (req, res, next) => {
   const { id: commentId } = req.params;
 
