@@ -66,20 +66,27 @@ export const updateComment = asyncHandler(async (req, res, next) => {
     );
   }
 
-  const updatedComment = await Comment.findByIdAndUpdate(
-    commentId,
-    { $set: { ...req.body } },
-    {
-      new: true,
-      runValidators: true,
-    },
-  );
+
+  if (
+    req.user.id === String(comment.user._id) ||
+    req.user.id === String(video.user) ||
+    req.user.role === 'admin'
+  ) {
+    const updatedComment = await Comment.findByIdAndUpdate(
+      commentId,
+      { $set: { ...req.body } },
+      {
+        new: true,
+        runValidators: true,
+      },
+    );
 
 
-  res.status(StatusCodes.OK).json({
-    status: 'success',
-    comment: updatedComment,
-  });
+    res.status(StatusCodes.OK).json({
+      status: 'success',
+      comment: updatedComment,
+    });
+  }
 });
 
 export const deleteComment = asyncHandler(async (req, res, next) => {
