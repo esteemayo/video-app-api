@@ -57,6 +57,14 @@ export const createComment = asyncHandler(async (req, res, next) => {
 export const updateComment = asyncHandler(async (req, res, next) => {
   const { id: commentId } = req.params;
 
+  const comment = await Comment.findById(commentId);
+
+  if (!comment) {
+    return next(
+      new NotFoundError(`There is no comment with the given ID ↔ ${commentId}`)
+    );
+  }
+
   const updatedComment = await Comment.findByIdAndUpdate(
     commentId,
     { $set: { ...req.body } },
@@ -66,11 +74,6 @@ export const updateComment = asyncHandler(async (req, res, next) => {
     },
   );
 
-  if (!updatedComment) {
-    return next(
-      new NotFoundError(`There is no comment with the given ID ↔ ${commentId}`)
-    );
-  }
 
   res.status(StatusCodes.OK).json({
     status: 'success',
