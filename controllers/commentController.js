@@ -6,6 +6,7 @@ import Comment from './../models/Comment.js';
 import Video from '../models/Video.js';
 import APIFeatures from '../utils/apiFeatures.js';
 import NotFoundError from '../errors/notFound.js';
+import ForbiddenError from '../errors/forbidden.js';
 
 export const getComments = asyncHandler(async (req, res, next) => {
   const features = new APIFeatures(Comment.find(), req.query)
@@ -89,8 +90,14 @@ export const deleteComment = asyncHandler(async (req, res, next) => {
     );
   }
 
-  res.status(StatusCodes.NO_CONTENT).json({
-    status: 'success',
-    comment: null,
-  });
+  if (req.user.id === String(comment.user._id) || req.user.id === video.user || req.user.role === 'admin') {
+    await comment.remove();
+
+    res.status(StatusCodes.NO_CONTENT).json({
+      status: 'success',
+      comment: null,
+    });
+  }
+
+  return next(new ForbiddenError('You can delete only your comment'));
 });
