@@ -85,6 +85,8 @@ export const updateComment = asyncHandler(async (req, res, next) => {
       comment: updatedComment,
     });
   }
+
+  return next(new ForbiddenError('You can update only your comment'));
 });
 
 export const deleteComment = asyncHandler(async (req, res, next) => {
