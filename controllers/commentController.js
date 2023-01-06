@@ -66,7 +66,6 @@ export const updateComment = asyncHandler(async (req, res, next) => {
     );
   }
 
-
   if (
     req.user.id === String(comment.user._id) ||
     req.user.id === String(video.user) ||
