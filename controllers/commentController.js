@@ -90,7 +90,7 @@ export const deleteComment = asyncHandler(async (req, res, next) => {
     );
   }
 
-  if (req.user.id === String(comment.user._id) || req.user.id === video.user || req.user.role === 'admin') {
+  if (req.user.id === String(comment.user._id) || req.user.id === String(video.user) || req.user.role === 'admin') {
     await comment.remove();
 
     res.status(StatusCodes.NO_CONTENT).json({
