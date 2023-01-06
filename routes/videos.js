@@ -38,6 +38,6 @@ router
   .route('/:id')
   .get(videoController.getVideoById)
   .patch(authMiddleware.protect, videoController.updateVideo)
-  .delete(videoController.deleteVideo);
+  .delete(authMiddleware.protect, videoController.deleteVideo);
 
 export default router;
