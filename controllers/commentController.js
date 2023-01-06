@@ -58,6 +58,7 @@ export const updateComment = asyncHandler(async (req, res, next) => {
   const { id: commentId } = req.params;
 
   const comment = await Comment.findById(commentId);
+  const video = await Video.findById(comment.video);
 
   if (!comment) {
     return next(
