@@ -27,7 +27,6 @@ router.patch('/view/:id', videoController.views);
 
 router.get(
   '/details/:slug',
-  authMiddleware.verifyUser,
   videoController.getVideoBySlug,
 );
 
