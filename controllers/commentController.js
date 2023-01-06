@@ -9,7 +9,10 @@ import ForbiddenError from '../errors/forbidden.js';
 import NotFoundError from '../errors/notFound.js';
 
 export const getComments = asyncHandler(async (req, res, next) => {
-  const features = new APIFeatures(Comment.find(), req.query)
+  let filter = {};
+  if (req.params.videoId) filter = { video: req.params.videoId };
+
+  const features = new APIFeatures(Comment.find(filter), req.query)
     .filter()
     .sort()
     .limitFields()
