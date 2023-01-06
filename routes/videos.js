@@ -7,6 +7,8 @@ import * as videoController from '../controllers/videoController.js';
 
 const router = express.Router();
 
+router.use('/:videoId/comments', commentRouter);
+
 router.get('/trend', videoController.getTrendingVideos);
 
 router.get('/random', videoController.getRandomVideos);
