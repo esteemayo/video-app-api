@@ -105,8 +105,11 @@ export const updateComment = asyncHandler(async (req, res, next) => {
 export const deleteComment = asyncHandler(async (req, res, next) => {
   const { id: commentId } = req.params;
 
+  let video;
   const comment = await Comment.findById(commentId);
-  const video = await Video.findById(comment.video);
+  if (comment) {
+    video = await Video.findById(comment.video);
+  }
 
   if (!comment) {
     return next(
