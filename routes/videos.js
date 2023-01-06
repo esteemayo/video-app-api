@@ -32,8 +32,6 @@ router
   .get(videoController.getVideos)
   .post(authMiddleware.protect, videoController.createVideo);
 
-router.use(authMiddleware.protect);
-
 router
   .route('/:id')
   .get(videoController.getVideoById)
