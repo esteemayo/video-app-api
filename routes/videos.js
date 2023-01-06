@@ -42,6 +42,6 @@ router
   .route('/:id')
   .get(videoController.getVideoById)
   .patch(videoController.updateVideo)
-  .delete(authMiddleware.verifyUser, videoController.deleteVideo);
+  .delete(videoController.deleteVideo);
 
 export default router;
