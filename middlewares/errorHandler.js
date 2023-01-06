@@ -1,5 +1,10 @@
 import { StatusCodes } from 'http-status-codes';
 
+const handleCastErrorDB = (customError, err) => {
+  customError.message = `Invalid ${err.path}: ${err.value}`;
+  customError.statusCode = StatusCodes.BAD_REQUEST;
+};
+
 const sendErrorDev = (err, res) => {
   res.status(err.statusCode).json({
     status: err.status,
@@ -24,6 +29,8 @@ const globalErrorHandler = (err, req, res, next) => {
   };
 
   if (process.env.NODE_ENV === 'development') {
+    if (err.name === 'CastError') handleCastErrorDB(customError, err);
+
     sendErrorDev(customError, res);
   } else if (process.env.NODE_ENV === 'production') {
     sendErrorProd(customError, res);
