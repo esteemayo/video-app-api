@@ -8,6 +8,8 @@ const router = express.Router();
 
 router.use(authMiddleware.protect);
 
+router.get('/videos/:videoId', commentController.getCommentsOnVideo);
+
 router
   .route('/')
   .get(commentController.getComments)
