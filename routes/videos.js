@@ -25,10 +25,7 @@ router.get('/search', videoController.searchVideo);
 
 router.patch('/view/:id', videoController.views);
 
-router.get(
-  '/details/:slug',
-  videoController.getVideoBySlug,
-);
+router.get('/details/:slug', videoController.getVideoBySlug);
 
 router
   .route('/')
