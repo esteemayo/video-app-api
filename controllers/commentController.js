@@ -32,6 +32,8 @@ export const getCommentsOnVideo = asyncHandler(async (req, res, next) => {
 
   res.status(StatusCodes.OK).json({
     status: 'success',
+    requestedAt: req.requestTime,
+    nbHits: comments.length,
     comments,
   });
 });
