@@ -18,6 +18,11 @@ const handleValidationErrorDB = (customError, err) => {
   customError.statusCode = StatusCodes.BAD_REQUEST;
 };
 
+const handleJWTExpiredError = (customError) => {
+  customError.message = 'Your token has expired! Please log in again';
+  customError.statusCode = StatusCodes.UNAUTHORIZED;
+};
+
 const sendErrorDev = (err, res) => {
   res.status(err.statusCode).json({
     status: err.status,
@@ -44,6 +49,7 @@ const globalErrorHandler = (err, req, res, next) => {
   if (err.name === 'CastError') handleCastErrorDB(customError, err);
   if (err.code && err.code === 11000) handleDuplicateFieldsDB(customError, err);
   if (err.name === 'ValidationError') handleValidationErrorDB(customError, err);
+  if (err.name === 'TokenExpiredError') handleJWTExpiredError(customError);
 
   if (process.env.NODE_ENV === 'development') {
     sendErrorDev(customError, res);
