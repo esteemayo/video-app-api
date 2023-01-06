@@ -1,6 +1,7 @@
 /* eslint-disable */
 import express from 'express';
 
+import commentRouter from './comments.js';
 import * as authMiddleware from '../middlewares/authMiddleware.js';
 import * as videoController from '../controllers/videoController.js';
 
