@@ -5,8 +5,8 @@ import asyncHandler from 'express-async-handler';
 import Comment from './../models/Comment.js';
 import Video from '../models/Video.js';
 import APIFeatures from '../utils/apiFeatures.js';
-import NotFoundError from '../errors/notFound.js';
 import ForbiddenError from '../errors/forbidden.js';
+import NotFoundError from '../errors/notFound.js';
 
 export const getComments = asyncHandler(async (req, res, next) => {
   const features = new APIFeatures(Comment.find(), req.query)
