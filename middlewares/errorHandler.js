@@ -34,10 +34,10 @@ const globalErrorHandler = (err, req, res, next) => {
     stack: err.stack,
   };
 
-  if (process.env.NODE_ENV === 'development') {
-    if (err.name === 'CastError') handleCastErrorDB(customError, err);
-    if (err.code && err.code === 11000) handleDuplicateFieldsDB(customError, err);
+  if (err.name === 'CastError') handleCastErrorDB(customError, err);
+  if (err.code && err.code === 11000) handleDuplicateFieldsDB(customError, err);
 
+  if (process.env.NODE_ENV === 'development') {
     sendErrorDev(customError, res);
   } else if (process.env.NODE_ENV === 'production') {
     sendErrorProd(customError, res);
