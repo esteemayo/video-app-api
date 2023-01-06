@@ -9,7 +9,7 @@ const createSendToken = (user, status, req, res) => {
     secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
   });
 
-  const { password, ...rest } = user._doc;
+  const { role, password, ...rest } = user._doc;
 
   res.status(status).json({
     status: 'success',
