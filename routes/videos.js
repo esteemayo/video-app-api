@@ -40,7 +40,7 @@ router.use(authMiddleware.protect);
 
 router
   .route('/:id')
-  .get(authMiddleware.verifyUser, videoController.getVideoById)
+  .get(videoController.getVideoById)
   .patch(authMiddleware.verifyUser, videoController.updateVideo)
   .delete(authMiddleware.verifyUser, videoController.deleteVideo);
 
