@@ -18,3 +18,4 @@ connectDB();
 
 const videos = JSON.parse(fs.readFile(`${__dirname}/videos.json`, 'utf-8'));
 const users = JSON.parse(fs.readFile(`${__dirname}/users.json`, 'utf-8'));
+const comments = JSON.parse(fs.readFile(`${__dirname}/comments.json`, 'utf-8'));
