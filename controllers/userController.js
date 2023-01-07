@@ -157,7 +157,34 @@ export const unsubscribe = asyncHandler(async (req, res, next) => {
   });
 });
 
-export const likeVideo = asyncHandler(async (req, res, next) => { });
+export const likeVideo = asyncHandler(async (req, res, next) => {
+  const {
+    params: { videoId },
+    user: { id: userId },
+  } = req;
+
+  const video = await Video.findByIdAndUpdate(
+    videoId,
+    {
+      $addToSet: { likes: userId },
+      $pull: { dislikes: userId },
+    },
+    {
+      new: true,
+    }
+  );
+
+  if (!video) {
+    return next(
+      new NotFoundError(`There is no video with the given ID ↔ ${videoId}`)
+    );
+  }
+
+  res.status(StatusCodes.OK).json({
+    status: 'success',
+    video,
+  });
+});
 
 export const dislikeVideo = asyncHandler(async (req, res, next) => { });
 
