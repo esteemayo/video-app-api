@@ -26,11 +26,14 @@ export const getAll = (Model) =>
     });
   });
 
-export const getOneById = (Model) =>
+export const getOneById = (Model, popOptions) =>
   asyncHandler(async (req, res, next) => {
     const { id: docId } = req.params;
 
-    const doc = await Model.findById(docId);
+    let query = Model.findById(docId);
+    if (popOptions) query = query.populate(popOptions);
+
+    const doc = await query;
 
     if (!doc) {
       return next(
