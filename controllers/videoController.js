@@ -104,7 +104,7 @@ export const getVideoById = asyncHandler(async (req, res, next) => {
 export const getVideoBySlug = asyncHandler(async (req, res, next) => {
   const { slug } = req.params;
 
-  const video = await Video.findOne({ slug });
+  const video = await Video.findOne({ slug }).populate({ path: 'comments' });
 
   if (!video) {
     return next(
