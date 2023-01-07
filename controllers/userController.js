@@ -201,6 +201,7 @@ export const dislikeVideo = asyncHandler(async (req, res, next) => {
     },
     {
       new: true,
+      runValidators: true,
     },
   );
 
