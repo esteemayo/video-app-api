@@ -15,3 +15,5 @@ const __dirname = path.dirname(__filename);
 dotenv.config({ path: './variables.env' });
 
 connectDB();
+
+const videos = JSON.parse(fs.readFile(`${__dirname}/videos.json`, 'utf-8'));
