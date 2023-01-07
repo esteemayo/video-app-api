@@ -48,6 +48,12 @@ const videoSchema = new mongoose.Schema({
   toObject: { virtuals: true },
 });
 
+videoSchema.virtual('comments', {
+  ref: 'Comment',
+  localField: '_id',
+  foreignField: 'video',
+});
+
 videoSchema.pre('save', async function (next) {
   if (!this.isModified('title')) return next();
   this.slug = slugify(this.title, { lower: true });
