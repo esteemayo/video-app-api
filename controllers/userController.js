@@ -171,6 +171,7 @@ export const likeVideo = asyncHandler(async (req, res, next) => {
     },
     {
       new: true,
+      runValidators: true,
     },
   );
 
