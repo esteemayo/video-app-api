@@ -48,6 +48,10 @@ const deleteData = async () => {
     );
     process.exit();
   } catch (err) {
+    console.log(
+      '\n👎👎👎👎👎👎👎👎 Error! The Error info is below but if you are importing sample data make sure to drop the existing database first with.\n\n\t npm run blowitallaway\n\n\n'
+        .red.bold
+    );
     console.log(err);
     process.exit();
   }
