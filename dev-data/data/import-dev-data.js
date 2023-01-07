@@ -41,6 +41,10 @@ const deleteData = async () => {
     await Video.deleteMany();
     await User.deleteMany();
     await Comment.deleteMany();
+    console.log(
+      'Data successfully deleted! To load sample data, run\n\n\t npm run sample\n\n'
+        .blue.bold
+    );
     process.exit();
   } catch (err) {
     console.log(err);
