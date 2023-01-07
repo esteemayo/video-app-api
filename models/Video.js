@@ -45,6 +45,7 @@ const videoSchema = new mongoose.Schema({
 }, {
   timestamps: true,
   toJSON: { virtuals: true },
+  toObject: { virtuals: true },
 });
 
 videoSchema.pre('save', async function (next) {
