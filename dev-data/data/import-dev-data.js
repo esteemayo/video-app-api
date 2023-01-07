@@ -19,3 +19,15 @@ connectDB();
 const videos = JSON.parse(fs.readFile(`${__dirname}/videos.json`, 'utf-8'));
 const users = JSON.parse(fs.readFile(`${__dirname}/users.json`, 'utf-8'));
 const comments = JSON.parse(fs.readFile(`${__dirname}/comments.json`, 'utf-8'));
+
+const importData = async () => {
+  try {
+    await Video.insertMany(videos);
+    await User.insertMany(users);
+    await Comment.insertMany(comments);
+    process.exit();
+  } catch (err) {
+    console.log(err);
+    process.exit();
+  }
+};
