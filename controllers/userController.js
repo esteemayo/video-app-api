@@ -171,7 +171,7 @@ export const likeVideo = asyncHandler(async (req, res, next) => {
     },
     {
       new: true,
-    }
+    },
   );
 
   if (!video) {
