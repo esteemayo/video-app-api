@@ -9,3 +9,5 @@ import Comment from '../../models/Comment.js';
 import connectDB from '../../config/db.js';
 
 dotenv.config({ path: './variables.env' });
+
+connectDB();
