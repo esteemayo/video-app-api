@@ -38,6 +38,7 @@ const importData = async () => {
 
 const deleteData = async () => {
   try {
+    console.log('😢😢 Goodbye Data...');
     await Video.deleteMany();
     await User.deleteMany();
     await Comment.deleteMany();
