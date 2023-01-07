@@ -44,3 +44,9 @@ const deleteData = async () => {
     process.exit();
   }
 };
+
+if (process.argv.includes('--delete')) {
+  deleteData();
+} else {
+  importData();
+}
