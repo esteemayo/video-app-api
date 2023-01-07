@@ -9,6 +9,9 @@ import User from '../../models/User.js';
 import Comment from '../../models/Comment.js';
 import connectDB from '../../config/db.js';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 dotenv.config({ path: './variables.env' });
 
 connectDB();
