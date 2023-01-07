@@ -5,5 +5,6 @@ import 'colors';
 
 import Video from '../../models/Video.js';
 import User from '../../models/User.js';
+import Comment from '../../models/Comment.js';
 
 dotenv.config({ path: './variables.env' });
