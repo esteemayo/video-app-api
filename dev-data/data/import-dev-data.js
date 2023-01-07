@@ -31,3 +31,15 @@ const importData = async () => {
     process.exit();
   }
 };
+
+const deleteData = async () => {
+  try {
+    await Video.deleteMany();
+    await User.deleteMany();
+    await Comment.deleteMany();
+    process.exit();
+  } catch (err) {
+    console.log(err);
+    process.exit();
+  }
+};
