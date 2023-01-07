@@ -26,6 +26,9 @@ const importData = async () => {
     await Video.insertMany(videos);
     await User.insertMany(users);
     await Comment.insertMany(comments);
+    console.log(
+      '👍👍👍👍👍👍👍👍 Data successfully loaded! 👍👍👍👍👍👍👍👍'.green.bold
+    );
     process.exit();
   } catch (err) {
     console.log(err);
