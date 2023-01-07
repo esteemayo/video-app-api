@@ -4,6 +4,7 @@ import { StatusCodes } from 'http-status-codes';
 import asyncHandler from 'express-async-handler';
 
 import User from '../models/User.js';
+import Video from '../models/Video.js';
 import BadRequestError from '../errors/badRequest.js';
 import NotFoundError from '../errors/notFound.js';
 import createSendToken from '../utils/createSendToken.js';
