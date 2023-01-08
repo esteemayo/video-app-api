@@ -48,6 +48,9 @@ const videoSchema = new mongoose.Schema({
   toObject: { virtuals: true },
 });
 
+videoSchema.index({ title: 1 })
+videoSchema.index({ slug: -1 });
+
 videoSchema.virtual('comments', {
   ref: 'Comment',
   localField: '_id',
