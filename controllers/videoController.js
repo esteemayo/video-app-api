@@ -211,5 +211,5 @@ export const deleteVideo = asyncHandler(async (req, res, next) => {
     });
   }
 
-  return next(new ForbiddenError('You can update only your video'));
+  return next(new ForbiddenError('You can delete only your video'));
 });
