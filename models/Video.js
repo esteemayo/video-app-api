@@ -66,6 +66,15 @@ videoSchema.pre('save', async function (next) {
   }
 });
 
+videoSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'user',
+    select: 'name username img',
+  });
+
+  next();
+});
+
 videoSchema.statics.getRandomVideos = async function () {
   return await this.aggregate([
     {
