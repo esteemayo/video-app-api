@@ -99,35 +99,6 @@ export const updateMe = asyncHandler(async (req, res, next) => {
   createSendToken(updatedUser, StatusCodes.OK, req, res);
 });
 
-export const deleteUser = asyncHandler(async (req, res, next) => {
-  const { id: userId } = req.params;
-
-  const user = await User.findByIdAndDelete(userId);
-
-  if (!user) {
-    return next(
-      new NotFoundError(`There is no user with the given ID ↔ ${userId}`)
-    );
-  }
-
-  res.status(StatusCodes.NO_CONTENT).json({
-    status: 'success',
-    user: null,
-  });
-});
-
-export const deleteMe = asyncHandler(async (req, res, next) => {
-  const { id: userId } = req.user;
-
-  const user = await User.findByIdAndUpdate(userId, { active: false });
-  await Video.deleteMany({ user: user._id });
-
-  res.status(StatusCodes.NO_CONTENT).json({
-    status: 'success',
-    user: null,
-  });
-});
-
 export const subscribe = asyncHandler(async (req, res, next) => {
   await User.findByIdAndUpdate(req.user.id, {
     $push: { subscribedUsers: req.params.id },
@@ -217,6 +188,36 @@ export const dislikeVideo = asyncHandler(async (req, res, next) => {
     video,
   });
 });
+
+export const deleteUser = asyncHandler(async (req, res, next) => {
+  const { id: userId } = req.params;
+
+  const user = await User.findByIdAndDelete(userId);
+
+  if (!user) {
+    return next(
+      new NotFoundError(`There is no user with the given ID ↔ ${userId}`)
+    );
+  }
+
+  res.status(StatusCodes.NO_CONTENT).json({
+    status: 'success',
+    user: null,
+  });
+});
+
+export const deleteMe = asyncHandler(async (req, res, next) => {
+  const { id: userId } = req.user;
+
+  const user = await User.findByIdAndUpdate(userId, { active: false });
+  await Video.deleteMany({ user: user._id });
+
+  res.status(StatusCodes.NO_CONTENT).json({
+    status: 'success',
+    user: null,
+  });
+});
+
 
 export const getMe = (req, res, next) => {
   req.params.id = req.user.id;
