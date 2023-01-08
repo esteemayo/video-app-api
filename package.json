@@ -12,7 +12,7 @@
     "blowitallaway": "node ./dev-data/data/import-dev-data --delete"
   },
   "keywords": [],
-  "author": "",
+  "author": "Emmanuel Adebayo",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
