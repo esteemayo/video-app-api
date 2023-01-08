@@ -119,7 +119,7 @@ export const deleteComment = asyncHandler(async (req, res, next) => {
 
   if (
     req.user.id === String(comment.user._id) ||
-    req.user.id === String(video.user) ||
+    req.user.id === String(video.user._id) ||
     req.user.role === 'admin'
   ) {
     await comment.remove();
