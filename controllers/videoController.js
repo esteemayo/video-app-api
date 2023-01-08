@@ -142,7 +142,7 @@ export const updateVideo = asyncHandler(async (req, res, next) => {
     );
   }
 
-  if (req.user.id === video.user || req.user.role === 'admin') {
+  if (req.user.id === String(video.user._id) || req.user.role === 'admin') {
     const updatedVideo = await Video.findByIdAndUpdate(
       videoId,
       { $set: { ...req.body } },
