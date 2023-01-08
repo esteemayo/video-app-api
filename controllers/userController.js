@@ -218,7 +218,6 @@ export const deleteMe = asyncHandler(async (req, res, next) => {
   });
 });
 
-
 export const getMe = (req, res, next) => {
   req.params.id = req.user.id;
   next();
