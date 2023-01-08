@@ -119,7 +119,8 @@ export const deleteUser = asyncHandler(async (req, res, next) => {
 export const deleteMe = asyncHandler(async (req, res, next) => {
   const { id: userId } = req.user;
 
-  await User.findByIdAndUpdate(userId, { active: false });
+  const user = await User.findByIdAndUpdate(userId, { active: false });
+  await Video.deleteMany({ user: user._id });
 
   res.status(StatusCodes.NO_CONTENT).json({
     status: 'success',
