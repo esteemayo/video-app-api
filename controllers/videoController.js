@@ -196,7 +196,10 @@ export const deleteVideo = asyncHandler(async (req, res, next) => {
     );
   }
 
-  if (req.user.id === String(video.user._id) || req.user.role === 'admin') {
+  if (
+    req.user.id === String(video.user._id) ||
+    req.user.role === 'admin'
+  ) {
     await video.remove();
 
     return res.status(StatusCodes.NO_CONTENT).json({
