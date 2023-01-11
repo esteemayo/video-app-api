@@ -14,6 +14,7 @@ const createSendToken = (user, status, req, res) => {
   res.status(status).json({
     status: 'success',
     details: {
+      token,
       ...rest,
     },
     role,
