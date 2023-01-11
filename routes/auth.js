@@ -10,6 +10,8 @@ router.post('/signup', authController.signup);
 
 router.post('/signin', authController.signin);
 
+router.post('/google', authController.googleSignIn);
+
 router.post('/forgot-password', authController.forgotPassword);
 
 router.post('/reset-password/:token', authController.resetPassword);
