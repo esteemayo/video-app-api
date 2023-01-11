@@ -10,7 +10,7 @@ router.post('/signup', authController.signup);
 
 router.post('/signin', authController.signin);
 
-router.post('/google', authController.googleSignIn);
+router.post('/google', authController.googleAuth);
 
 router.post('/forgot-password', authController.forgotPassword);
 
