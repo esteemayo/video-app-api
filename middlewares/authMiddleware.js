@@ -8,7 +8,14 @@ import UnauthenticatedError from '../errors/unauthenticated.js';
 import ForbiddenError from './../errors/forbidden.js';
 
 export const protect = asyncHandler(async (req, res, next) => {
-  const token = req.cookies.access_token;
+  let token;
+  const authHeader = req.headers.authorization;
+
+  if (authHeader && authHeader.startsWith('Bearer')) {
+    token = authHeader.split(' ')[1];
+  } else if (req.cookies.access_token) {
+    token = req.cookies.access_token;
+  }
 
   if (!token) {
     return next(
