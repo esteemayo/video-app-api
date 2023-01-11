@@ -1,5 +1,6 @@
 /* eslint-disable */
 import crypto from 'crypto';
+import jwt from 'jsonwebtoken';
 import { StatusCodes } from 'http-status-codes';
 import asyncHandler from 'express-async-handler';
 
