@@ -29,12 +29,12 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, 'Please provide your password'],
+    // required: [true, 'Please provide your password'],
     minlength: [8, 'Password must not be less than 8 characters'],
   },
   passwordConfirm: {
     type: String,
-    required: [true, 'Please confirm your password'],
+    // required: [true, 'Please confirm your password'],
     minlength: [8, 'Password must not be less than 8 characters'],
     validate: {
       validator: function (val) {
