@@ -72,7 +72,7 @@ videoSchema.pre('save', async function (next) {
 videoSchema.pre(/^find/, function (next) {
   this.populate({
     path: 'user',
-    select: 'name username img',
+    select: 'name username img subscribers',
   });
 
   next();
