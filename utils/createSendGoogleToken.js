@@ -8,10 +8,12 @@ const createSendGoogleToken = (user, status, req, res) => {
     secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
   });
 
+  const details = user._doc;
+
   res.status(status).json({
     status: 'success',
     token,
-    user: user._doc,
+    ...details,
   });
 };
 
