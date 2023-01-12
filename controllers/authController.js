@@ -35,6 +35,23 @@ export const signin = asyncHandler(async (req, res, next) => {
   createSendToken(user, StatusCodes.OK, req, res);
 });
 
+export const googleAuth = asyncHandler(async (req, res, next) => {
+  const { email } = req.body;
+
+  const user = await User.findOne({ email });
+
+  if (user) {
+    return createSendGoogleToken(user, StatusCodes.OK, req, res);
+  }
+
+  const newUser = await User.create({
+    ...req.body,
+    fromGoogle: true,
+  });
+
+  createSendGoogleToken(newUser, StatusCodes.OK, req, res);
+});
+
 export const forgotPassword = asyncHandler(async (req, res, next) => {
   const { email } = req.body;
 
