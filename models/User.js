@@ -63,6 +63,10 @@ const userSchema = new mongoose.Schema({
     default: true,
     select: false,
   },
+  fromGoogle: {
+    type: Boolean,
+    default: false,
+  },
   passwordResetToken: String,
   passwordResetExpires: Date,
   passwordChangedAt: Date,
