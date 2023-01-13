@@ -125,7 +125,7 @@ export const unsubscribe = asyncHandler(async (req, res, next) => {
 
   res.status(StatusCodes.OK).json({
     status: 'success',
-    message: 'Unsubscription successfull',
+    message: 'Unsubscription successful',
   });
 });
 
