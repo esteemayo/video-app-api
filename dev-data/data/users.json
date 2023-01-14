@@ -157,5 +157,21 @@
     "createdAt": "2023-01-14T15:34:36.634Z",
     "updatedAt": "2023-01-14T15:34:36.634Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2cc2715140efd12628ffd",
+    "name": "Miyah Myles",
+    "username": "miyah",
+    "email": "miyah@example.com",
+    "password": "$2a$12$jhA5lKshaRL2vMXyYSiaDOsT2P8Jx4S03/aOXpEQ6iScpSPFK2U5S",
+    "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673710625298-user-6.jpg?alt=media&token=eeda9e8d-4f37-482e-8bbf-0299e6676f97",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:37:11.140Z",
+    "updatedAt": "2023-01-14T15:37:11.140Z",
+    "__v": 0
   }
 ]
