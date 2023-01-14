@@ -94,5 +94,21 @@
     "createdAt": "2023-01-14T15:30:44.914Z",
     "updatedAt": "2023-01-14T15:30:44.914Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2cac415140efd12628f9d",
+    "name": "Lourdes Browning",
+    "username": "loulou",
+    "email": "loulou@example.com",
+    "password": "$2a$12$KEAnkQiq2ZEllDkTc/G6kuY8CWRtlqwomK0JHA2PzrADR2tJ3syUy",
+    "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673710274053-user-3.jpg?alt=media&token=bf1a410e-d326-411a-86c7-c9c88dce4db9",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:31:16.490Z",
+    "updatedAt": "2023-01-14T15:31:16.490Z",
+    "__v": 0
   }
 ]
