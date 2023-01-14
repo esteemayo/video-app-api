@@ -62,5 +62,21 @@
     "createdAt": "2023-01-14T15:29:27.222Z",
     "updatedAt": "2023-01-14T15:29:27.222Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2ca7a15140efd12628f6d",
+    "name": "Christian Vega",
+    "username": "chris",
+    "email": "chris@example.com",
+    "password": "$2a$12$utVklgDaKrb43tfQPXEWs.mDtznY19xdkKzPP2lXn9h11PiZpFMTi",
+    "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673710199745-user-9.jpg?alt=media&token=00eeae3c-dce2-4593-84dc-91f52d9a12e4",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:30:02.828Z",
+    "updatedAt": "2023-01-14T15:30:02.828Z",
+    "__v": 0
   }
 ]
