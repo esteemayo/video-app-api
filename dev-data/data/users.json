@@ -126,5 +126,21 @@
     "createdAt": "2023-01-14T15:32:37.372Z",
     "updatedAt": "2023-01-14T15:32:37.372Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2cb4515140efd12628fcd",
+    "name": "Sophie Louise Hart",
+    "username": "sophie",
+    "email": "sophie@example.com",
+    "password": "$2a$12$SJrpyDanSGbZZvsCOmEPt.h4yLp57W1tfmG66wbhcdbuW27ZD32uy",
+    "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673710402063-monica.jpg?alt=media&token=fce40a9d-98d0-4123-9d19-1dbc35d65543",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:33:25.418Z",
+    "updatedAt": "2023-01-14T15:33:25.418Z",
+    "__v": 0
   }
 ]
