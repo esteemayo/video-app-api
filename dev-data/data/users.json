@@ -110,5 +110,21 @@
     "createdAt": "2023-01-14T15:31:16.490Z",
     "updatedAt": "2023-01-14T15:31:16.490Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2cb1515140efd12628fb5",
+    "name": "Maye Wintheiser",
+    "username": "maye",
+    "email": "maye.admin@youtube.com",
+    "password": "$2a$12$zl7/PG2QSbMIdXWsJv8suuInxI6DqteVVk.unJfpIcblbf5iCvyL6",
+    "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673710350642-leo.jpg?alt=media&token=6a83f9cc-3e31-4994-8db4-01ee792b6aec",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:32:37.372Z",
+    "updatedAt": "2023-01-14T15:32:37.372Z",
+    "__v": 0
   }
 ]
