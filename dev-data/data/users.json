@@ -237,5 +237,21 @@
     "createdAt": "2023-01-14T15:45:38.653Z",
     "updatedAt": "2023-01-14T15:45:38.653Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2cea615140efd1262908c",
+    "name": "Mark Alexander",
+    "username": "mark",
+    "email": "mark@example.com",
+    "password": "$2a$12$AsqxXzWcy0LJayseQX/qQ.3EZN2zlxNnLFyjM7tXqMmLEKeUlbZ.O",
+    "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673711266789-user-18.jpg?alt=media&token=2616e374-387c-4b70-9dfe-e32bd72629ee",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:47:50.326Z",
+    "updatedAt": "2023-01-14T15:47:50.326Z",
+    "__v": 0
   }
 ]
