@@ -14,5 +14,21 @@
     "createdAt": "2023-01-14T15:26:55.772Z",
     "updatedAt": "2023-01-14T15:26:55.772Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2ca0615140efd12628f25",
+    "name": "Harry Rodriguez",
+    "username": "harry",
+    "email": "harry@example.com",
+    "password": "$2a$12$IEXG4mK/LHIkV5tMFs2XzukluXvxeTeyIMQd6lMFWkL4r1ryTBdvK",
+    "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673710083898-user-1.jpg?alt=media&token=f1fe26ac-4f2d-45de-bea5-ec48abe46fec",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:28:06.327Z",
+    "updatedAt": "2023-01-14T15:28:06.327Z",
+    "__v": 0
   }
 ]
