@@ -173,5 +173,21 @@
     "createdAt": "2023-01-14T15:37:11.140Z",
     "updatedAt": "2023-01-14T15:37:11.140Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2cc9815140efd1262902b",
+    "name": "Steve T. Scaife",
+    "username": "steve",
+    "email": "steve@example.com",
+    "password": "$2a$12$Sxx9q6OK919eF3Mgj5Dhse0fjdAbA3McpjenssadCfOgRpSXTkf1.",
+    "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673710740380-user-13.jpg?alt=media&token=b85077b0-e59a-4b89-ba21-39bf797c9577",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:39:04.359Z",
+    "updatedAt": "2023-01-14T15:39:04.359Z",
+    "__v": 0
   }
 ]
