@@ -113,7 +113,7 @@
     "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673710350642-leo.jpg?alt=media&token=6a83f9cc-3e31-4994-8db4-01ee792b6aec",
     "subscribers": 0,
     "subscribedUsers": [],
-    "role": "user",
+    "role": "admin",
     "active": true,
     "fromGoogle": false,
     "createdAt": "2023-01-14T15:32:37.372Z",
