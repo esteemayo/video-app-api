@@ -189,5 +189,21 @@
     "createdAt": "2023-01-14T15:39:04.359Z",
     "updatedAt": "2023-01-14T15:39:04.359Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2cd1f15140efd12629044",
+    "name": "Eliana Stout",
+    "username": "eliana",
+    "email": "eliana@example.com",
+    "password": "$2a$12$vaKZkGL5PrTatJoKC/hhCewLnTlfvhXUO68rsizzYYr/yphTccRZ2",
+    "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673710820106-user-14.jpg?alt=media&token=cb1406d4-5b36-4190-b2c9-44b77be2b784",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:41:19.774Z",
+    "updatedAt": "2023-01-14T15:41:19.774Z",
+    "__v": 0
   }
 ]
