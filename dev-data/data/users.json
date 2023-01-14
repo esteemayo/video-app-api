@@ -30,5 +30,21 @@
     "createdAt": "2023-01-14T15:28:06.327Z",
     "updatedAt": "2023-01-14T15:28:06.327Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2ca2e15140efd12628f3d",
+    "name": "Bill James",
+    "username": "bill",
+    "email": "bill@example.com",
+    "password": "$2a$12$buBSzIrtY6LGh1KjfrFLzujU.ib9OHWoCUo77SbmXcqBTxLoH9/wu",
+    "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673710123462-user-5.jpg?alt=media&token=af58fb46-e18d-4dd3-b7a1-5ba9123f237e",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:28:46.176Z",
+    "updatedAt": "2023-01-14T15:28:46.176Z",
+    "__v": 0
   }
 ]
