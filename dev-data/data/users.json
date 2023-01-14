@@ -221,5 +221,21 @@
     "createdAt": "2023-01-14T15:42:27.526Z",
     "updatedAt": "2023-01-14T15:42:27.526Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2ce2215140efd12629074",
+    "name": "Jennifer Hardy",
+    "username": "jennie",
+    "email": "jennie@example.com",
+    "password": "$2a$12$yq7bQT.9ltOiAZTcscP.Aurj7jN5RvdAoaYw2YLTpc/hKy0ZKEfhS",
+    "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673711132590-user-20.jpg?alt=media&token=12fd0523-d365-41d1-ad58-a254976bbb48",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:45:38.653Z",
+    "updatedAt": "2023-01-14T15:45:38.653Z",
+    "__v": 0
   }
 ]
