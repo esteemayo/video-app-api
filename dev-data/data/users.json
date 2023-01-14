@@ -205,5 +205,21 @@
     "createdAt": "2023-01-14T15:41:19.774Z",
     "updatedAt": "2023-01-14T15:41:19.774Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2cd6315140efd1262905c",
+    "name": "Kate Morrison",
+    "username": "katie",
+    "email": "kate@example.com",
+    "password": "$2a$12$Vwk.s4wIYz8LtW4q7Att6eULLHk3U6rkXF6t5HM0xXJn92AoaI.42",
+    "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673710944453-user-7.jpg?alt=media&token=c4793171-5e9e-4cc1-ba52-e243c9a0fe9f",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:42:27.526Z",
+    "updatedAt": "2023-01-14T15:42:27.526Z",
+    "__v": 0
   }
 ]
