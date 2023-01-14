@@ -8,7 +8,7 @@
     "img": "https://firebasestorage.googleapis.com/v0/b/video-42829.appspot.com/o/users%2F1673709971600-my-image.jpg?alt=media&token=8485c627-9504-402b-9ac3-344ca765dd05",
     "subscribers": 0,
     "subscribedUsers": [],
-    "role": "user",
+    "role": "admin",
     "active": true,
     "fromGoogle": false,
     "createdAt": "2023-01-14T15:26:55.772Z",
