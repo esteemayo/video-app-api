@@ -142,5 +142,20 @@
     "createdAt": "2023-01-14T15:33:25.418Z",
     "updatedAt": "2023-01-14T15:33:25.418Z",
     "__v": 0
+  },
+  {
+    "_id": "63c2cb8c15140efd12628fe5",
+    "name": "Aarav Lynn",
+    "username": "aarav",
+    "email": "aarav@example.com",
+    "password": "$2a$12$cxDzePBMaU5vAL6abT2gsOarZHP19KfBv7WNnm9EFGSSss31.yI.W",
+    "subscribers": 0,
+    "subscribedUsers": [],
+    "role": "user",
+    "active": true,
+    "fromGoogle": false,
+    "createdAt": "2023-01-14T15:34:36.634Z",
+    "updatedAt": "2023-01-14T15:34:36.634Z",
+    "__v": 0
   }
 ]
