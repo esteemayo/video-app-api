@@ -6,8 +6,6 @@ import * as commentController from '../controllers/commentController.js';
 
 const router = express.Router({ mergeParams: true });
 
-router.use(authMiddleware.protect);
-
 router.get('/videos/:videoId', commentController.getCommentsOnVideo);
 
 router
@@ -18,6 +16,8 @@ router
     authMiddleware.restrictTo('user'),
     commentController.createComment,
   );
+
+router.use(authMiddleware.protect);
 
 router
   .route('/:id')
