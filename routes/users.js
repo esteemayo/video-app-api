@@ -30,7 +30,11 @@ router.get('/stats',
 
 router
   .route('/')
-  .get(authMiddleware.protect, authMiddleware.restrictTo('admin'), userController.getUsers)
+  .get(
+    authMiddleware.protect,
+    authMiddleware.restrictTo('admin'),
+    userController.getUsers,
+  )
   .post(userController.createUser);
 
 router
