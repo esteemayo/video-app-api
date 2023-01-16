@@ -18,7 +18,11 @@ router.patch('/subscribe/:id', authMiddleware.protect, userController.subscribe)
 
 router.patch('/unsubscribe/:id', authMiddleware.protect, userController.unsubscribe);
 
-router.patch('/like/:videoId', authMiddleware.protect, userController.likeVideo);
+router.patch(
+  '/like/:videoId',
+  authMiddleware.protect,
+  userController.likeVideo,
+);
 
 router.patch(
   '/dislike/:videoId',
