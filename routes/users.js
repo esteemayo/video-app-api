@@ -14,7 +14,11 @@ router.get('/me', authMiddleware.protect, userController.getMe, userController.g
 
 router.delete('/delete-me', authMiddleware.protect, userController.deleteMe);
 
-router.patch('/subscribe/:id', authMiddleware.protect, userController.subscribe);
+router.patch(
+  '/subscribe/:id',
+  authMiddleware.protect,
+  userController.subscribe,
+);
 
 router.patch(
   '/unsubscribe/:id',
