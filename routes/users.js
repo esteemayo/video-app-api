@@ -16,7 +16,11 @@ router.delete('/delete-me', authMiddleware.protect, userController.deleteMe);
 
 router.patch('/subscribe/:id', authMiddleware.protect, userController.subscribe);
 
-router.patch('/unsubscribe/:id', authMiddleware.protect, userController.unsubscribe);
+router.patch(
+  '/unsubscribe/:id',
+  authMiddleware.protect,
+  userController.unsubscribe,
+);
 
 router.patch(
   '/like/:videoId',
