@@ -10,7 +10,12 @@ router.use(authMiddleware.protect);
 
 router.patch('/update-me', authMiddleware.protect, userController.updateMe);
 
-router.get('/me', authMiddleware.protect, userController.getMe, userController.getUser);
+router.get(
+  '/me',
+  authMiddleware.protect,
+  userController.getMe,
+  userController.getUser,
+);
 
 router.delete(
   '/delete-me',
