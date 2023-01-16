@@ -12,7 +12,11 @@ router.patch('/update-me', authMiddleware.protect, userController.updateMe);
 
 router.get('/me', authMiddleware.protect, userController.getMe, userController.getUser);
 
-router.delete('/delete-me', authMiddleware.protect, userController.deleteMe);
+router.delete(
+  '/delete-me',
+  authMiddleware.protect,
+  userController.deleteMe,
+);
 
 router.patch(
   '/subscribe/:id',
