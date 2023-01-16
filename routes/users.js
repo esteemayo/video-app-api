@@ -8,34 +8,43 @@ const router = express.Router();
 
 router.use(authMiddleware.protect);
 
-router.patch('/update-me', userController.updateMe);
+router.patch('/update-me', authMiddleware.protect, userController.updateMe);
 
-router.get('/me', userController.getMe, userController.getUser);
+router.get('/me', authMiddleware.protect, userController.getMe, userController.getUser);
 
-router.delete('/delete-me', userController.deleteMe);
+router.delete('/delete-me', authMiddleware.protect, userController.deleteMe);
 
-router.patch('/subscribe/:id', userController.subscribe);
+router.patch('/subscribe/:id', authMiddleware.protect, userController.subscribe);
 
-router.patch('/unsubscribe/:id', userController.unsubscribe);
+router.patch('/unsubscribe/:id', authMiddleware.protect, userController.unsubscribe);
 
-router.patch('/like/:videoId', userController.likeVideo);
+router.patch('/like/:videoId', authMiddleware.protect, userController.likeVideo);
 
-router.patch('/dislike/:videoId', userController.dislikeVideo);
+router.patch('/dislike/:videoId', authMiddleware.protect, userController.dislikeVideo);
 
 router.get('/stats',
+  authMiddleware.protect,
   authMiddleware.restrictTo('admin'),
   userController.getUserStats,
 );
 
 router
   .route('/')
-  .get(authMiddleware.restrictTo('admin'), userController.getUsers)
+  .get(authMiddleware.protect, authMiddleware.restrictTo('admin'), userController.getUsers)
   .post(userController.createUser);
 
 router
   .route('/:id')
   .get(userController.getUser)
-  .patch(authMiddleware.restrictTo('admin'), userController.updateUser)
-  .delete(authMiddleware.restrictTo('admin'), userController.deleteUser);
+  .patch(
+    authMiddleware.protect,
+    authMiddleware.restrictTo('admin'),
+    userController.updateUser,
+  )
+  .delete(
+    authMiddleware.protect,
+    authMiddleware.restrictTo('admin'),
+    userController.deleteUser,
+  );
 
 export default router;
