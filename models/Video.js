@@ -1,7 +1,7 @@
 import slugify from 'slugify';
-import mongoose from 'mongoose';
+import mongoose, { Schema, Types } from 'mongoose';
 
-const videoSchema = new mongoose.Schema({
+const videoSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -38,7 +38,7 @@ const videoSchema = new mongoose.Schema({
     default: [],
   },
   user: {
-    type: mongoose.Types.ObjectId,
+    type: Types.ObjectId,
     ref: 'User',
     required: [true, 'A video must belong to a user'],
   },
