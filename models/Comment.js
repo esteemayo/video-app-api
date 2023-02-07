@@ -1,17 +1,17 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema, Types } from 'mongoose';
 
-const commentSchema = new mongoose.Schema({
+const commentSchema = new Schema({
   desc: {
     type: String,
     required: true,
   },
   video: {
-    type: mongoose.Types.ObjectId,
+    type: Types.ObjectId,
     ref: 'Video',
     required: 'A comment must belong to a video',
   },
   user: {
-    type: mongoose.Types.ObjectId,
+    type: Types.ObjectId,
     ref: 'User',
     required: 'A comment must belong to a user',
   },
