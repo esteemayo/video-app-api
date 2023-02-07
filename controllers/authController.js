@@ -8,7 +8,7 @@ import UnauthenticatedError from './../errors/unauthenticated.js';
 import BadRequestError from './../errors/badRequest.js';
 import NotFoundError from '../errors/notFound.js';
 import createSendToken from '../utils/createSendToken.js';
-import sendEmail from './../utils/email.js';
+import sendEmail from '../utils/email.js';
 import CustomAPIError from '../errors/customAPIError.js';
 import createSendGoogleToken from '../utils/createSendGoogleToken.js';
 
