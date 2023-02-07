@@ -2,7 +2,7 @@
 import { StatusCodes } from 'http-status-codes';
 import asyncHandler from 'express-async-handler';
 
-import Comment from './../models/Comment.js';
+import Comment from '../models/Comment.js';
 import Video from '../models/Video.js';
 import APIFeatures from '../utils/apiFeatures.js';
 import ForbiddenError from '../errors/forbidden.js';
